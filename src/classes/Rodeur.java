@@ -1,8 +1,8 @@
 package classes;
 
-import interfaces.Sorts;
+import interfaces.Player;
 
-public class Rodeur extends Personnage implements Sorts {
+public class Rodeur extends Personnage implements Player {
 
     public void attaqueBasique() {
         System.out.println("Tir à l’Arc!");

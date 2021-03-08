@@ -1,8 +1,8 @@
 package classes;
 
-import interfaces.Sorts;
+import interfaces.Player;
 
-public class Mage extends Personnage implements Sorts {
+public class Mage extends Personnage implements Player {
 
     public void attaqueBasique() {
         System.out.println("Boule de Feu!");

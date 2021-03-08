@@ -17,6 +17,18 @@ public class Screen {
         System.out.println(textInput);
     }
 
+    // Affiche du texte à l'écran sans retour à la ligne
+    public static void showTextNoReturn(String textInput) {
+        System.out.print(textInput);
+    }
+
+    // Mise à jour de la ligne courante
+    public static void UpdateTextNoRetun(String textInput) {
+        System.out.print("\r");
+        System.out.print(textInput);
+        System.out.flush();
+    }
+
     // Récupère un input de type int au clavier
     public static int getIntInput() {
         try {

@@ -1,8 +1,8 @@
 package classes;
 
-import interfaces.Sorts;
+import interfaces.Player;
 
-public class Guerrier extends Personnage implements Sorts {
+public class Guerrier extends Personnage implements Player {
 
     public void attaqueBasique() {
         System.out.println("Coup d’Épée!");

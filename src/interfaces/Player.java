@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Sorts {
+public interface Player {
     public void attaqueBasique();
     public void attaqueSpeciale();
 }

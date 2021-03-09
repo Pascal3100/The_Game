@@ -1,14 +1,14 @@
 package classes;
 
-import interfaces.Player;
+public class Rodeur extends Personnage {
 
-public class Rodeur extends Personnage implements Player {
-
-    public void attaqueBasique() {
+    public int attaqueBasique() {
         System.out.println("Tir à l’Arc!");
+        return 0;
     };
 
-    public void attaqueSpeciale() {
+    public int attaqueSpeciale() {
         System.out.println("Concentration...");
+        return 0;
     };
 }

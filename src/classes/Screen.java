@@ -88,4 +88,14 @@ public class Screen {
         showText("                  (_  )                     ` __.:'          ");
         showText("");
     }
+
+    // Affiche les nuages
+    public static void printSwords() {
+        showText("           /\\                                                 /\\");
+        showText(" _         )( ______________________   ______________________ )(         _");
+        showText("(_)///////(**)______________________> <______________________(**)\\\\\\\\\\\\\\(_)");
+        showText("           )(                                                 )(");
+        showText("           \\/                                                 \\/");
+        showText("");
+    }
 }

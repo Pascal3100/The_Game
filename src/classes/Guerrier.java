@@ -1,14 +1,14 @@
 package classes;
 
-import interfaces.Player;
+public class Guerrier extends Personnage {
 
-public class Guerrier extends Personnage implements Player {
-
-    public void attaqueBasique() {
+    public int attaqueBasique() {
         System.out.println("Coup d’Épée!");
+        return 0;
     };
 
-    public void attaqueSpeciale() {
+    public int attaqueSpeciale() {
         System.out.println("Coup de Rage!");
+        return 0;
     };
 }

@@ -1,15 +1,15 @@
 package classes;
 
-import interfaces.Player;
+public class Mage extends Personnage {
 
-public class Mage extends Personnage implements Player {
-
-    public void attaqueBasique() {
+    public int attaqueBasique() {
         System.out.println("Boule de Feu!");
+        return 0;
     };
 
-    public void attaqueSpeciale() {
+    public int attaqueSpeciale() {
         System.out.println("Soin...");
+        return 0;
     };
 
 

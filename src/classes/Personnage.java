@@ -1,37 +1,16 @@
 package classes;
 
-import interfaces.Player;
-
-import java.util.Map;
-
-public class Personnage {
+public abstract class Personnage {
 
     // Caractéristiques du personnage
-    int niveau = 0;
+    String nom = "";
+    int niveau = 1;
     int vitalite = 0;
     int force = 0;
     int agilite = 0;
     int intelligence = 0;
     int playerNumber = 0;
     String playerType = "";
-    Player characterClass = null;
-
-    public void setCharacter(int type) {
-        switch (type) {
-            case 1 :
-                characterClass = new Guerrier();
-                playerType = "Warrior";
-                break;
-            case 2 :
-                characterClass = new Rodeur();
-                playerType = "Ranger";
-                break;
-            case 3 :
-                characterClass = new Mage();
-                playerType = "Mage";
-                break;
-        }
-    }
 
     public int getNiveau() {
         return niveau;
@@ -42,12 +21,17 @@ public class Personnage {
         this.setVitalite(5*this.niveau);
     }
 
+    public int getLeftPoints() {
+        return this.niveau - this.force - this.agilite - this.intelligence;
+    }
+
     public int getPlayerNumber() {
         return playerNumber;
     }
 
     public void setPlayerNumber(int number) {
         this.playerNumber = number;
+        this.setNom();
     }
 
     public int getVitalite() {
@@ -69,6 +53,10 @@ public class Personnage {
     public String getPlayerType() {
         return playerType;
     }
+    public void setPlayerType(String playerType) {
+        this.playerType = playerType;
+        this.setNom();
+    }
 
     public int getAgilite() {
         return agilite;
@@ -86,4 +74,19 @@ public class Personnage {
         this.intelligence = intelligence;
     }
 
+    public abstract int attaqueBasique();
+
+    public abstract int attaqueSpeciale();
+
+
+    public String getResume() {
+        return this.nom + "Your actual skills : Level: " + this.niveau + " - Force: " + this.force + " - Intelligence: " + this.intelligence + " - Agilite: " + this.agilite;
+    }
+    public String getNom() {
+        return this.nom;
+    }
+
+    private void setNom() {
+        this.nom = "(@" + this.playerType + "_" + this.playerNumber + ") ";
+    }
 }

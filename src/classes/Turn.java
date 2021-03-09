@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Turn {
     private static int turn = 1;
-    private static int nextTurn = 2;
+    private static int nextTurn = 1;
     private static int maxTurn = 2;
 
     public static void switchTurn() {
@@ -24,6 +24,13 @@ public class Turn {
     public static void setRandomStartTurn() {
         Random rand = new Random();
         turn = rand.nextInt(maxTurn) + 1;
+        nextTurn = turn;
+        if (nextTurn < maxTurn) {
+            nextTurn++;
+        } else {
+            nextTurn = 1;
+        }
+
     }
 
     public static void setMaxTurn(int t) {

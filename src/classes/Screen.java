@@ -9,10 +9,8 @@ public class Screen {
 
     // Efface l'ecran
     public static void clearScreen() {
-        try {
-            Runtime.getRuntime().exec("cls");
-        } catch (IOException e) {
-            e.printStackTrace();
+        for (int i = 0; i < 40; i++) {
+            System.out.println("\b");
         }
     }
 
@@ -100,6 +98,31 @@ public class Screen {
         showText("(_)///////(**)______________________> <______________________(**)\\\\\\\\\\\\\\(_)");
         showText("           )(                                                 )(");
         showText("           \\/                                                 \\/");
+        showText("");
+    }
+
+    // Affiche les nuages
+    public static void printWinFrame() {
+        showText("      _,.");
+        showText("    ,` -.)");
+        showText("   ( _/-\\\\-._");
+        showText("  /,|`--._,-^|            ,");
+        showText("  \\_| |`-._/||          ,'|");
+        showText("    |  `-, / |         /  /");
+        showText("    |     || |        /  /");
+        showText("     `r-._||/   __   /  /");
+        showText(" __,-<_     )`-/  `./  /");
+        showText("'  \\   `---'   \\   /  /");
+        showText("    |           |./  /");
+        showText("    /           //  /");
+        showText("\\_/' \\         |/  /");
+        showText(" |    |   _,^-'/  /");
+        showText(" |    , ``  (\\/  /_");
+        showText("  \\,.->._    \\X-=/^");
+        showText("  (  /   `-._//^`");
+        showText("   `Y-.____(__}");
+        showText("    |     {__)");
+        showText("          ()");
         showText("");
     }
 }

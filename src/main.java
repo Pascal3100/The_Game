@@ -120,7 +120,7 @@ class Main {
         int dammages = 0;
         Turn.setRandomStartTurn();
         Screen.showTextNoReturn("Player " + Turn.getCurrentTurn() + ", you have been choose by the gods to begin the battle!!");
-        TimeUnit.SECONDS.sleep(2);
+        TimeUnit.SECONDS.sleep(5);
 
         do {
             Screen.clearScreen();
@@ -140,7 +140,7 @@ class Main {
                     break;
                 default :
                     Screen.showText("Your attack failed due to lack of concentration...");
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.SECONDS.sleep(2);
                     dammages = 0;
                     break;
             }
@@ -150,10 +150,16 @@ class Main {
 
             Turn.switchTurn();
 
+            TimeUnit.SECONDS.sleep(1);
 
         } while (dictPlayers.get(1).getVitalite() > 0 && dictPlayers.get(2).getVitalite() > 0);
 
+        Screen.printWinFrame();
 
-
+        if (dictPlayers.get(1).getVitalite() > 0) {
+            Screen.showText(dictPlayers.get(1).getNom() + "You win!");
+        } else {
+            Screen.showText(dictPlayers.get(1).getNom() + "You win!");
+        }
     }
 }

@@ -2,9 +2,10 @@ import classes.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // demarrage du jeu
         Personnage player;
         Map<Integer, Personnage> dictPlayers = new HashMap<>();
@@ -110,12 +111,48 @@ class Main {
                     break;
                 }
             }
-            // Lancement de la bataille!
+        }
+
+        // Lancement de la bataille!
+        Screen.clearScreen();
+        Screen.printSwords();
+        int attack = 0;
+        int dammages = 0;
+        Turn.setRandomStartTurn();
+        Screen.showTextNoReturn("Player " + Turn.getCurrentTurn() + ", you have been choose by the gods to begin the battle!!");
+        TimeUnit.SECONDS.sleep(2);
+
+        do {
             Screen.clearScreen();
             Screen.printSwords();
+            Screen.showText(dictPlayers.get(1).getCurStatus() + " | " + dictPlayers.get(2).getCurStatus());
+            Screen.showText(dictPlayers.get(Turn.getCurrentTurn()).getNom() + "Select your attack:");
+            Screen.showText("--> [1] Normal Attack");
+            Screen.showText("--> [2] Special Attack");
+            attack = Screen.getIntInput();
+
+            switch (attack) {
+                case 1 :
+                    dammages = dictPlayers.get(Turn.getCurrentTurn()).attaqueBasique();
+                    break;
+                case 2 :
+                    dammages = dictPlayers.get(Turn.getCurrentTurn()).attaqueSpeciale();
+                    break;
+                default :
+                    Screen.showText("Your attack failed due to lack of concentration...");
+                    TimeUnit.SECONDS.sleep(1);
+                    dammages = 0;
+                    break;
+            }
+
+            // Applique les dommages au joueur adverse
+            dictPlayers.get(Turn.getNextTurn()).receiveDammages(dammages);
+
+            Turn.switchTurn();
 
 
-        }
+        } while (dictPlayers.get(1).getVitalite() > 0 && dictPlayers.get(2).getVitalite() > 0);
+
 
 
     }

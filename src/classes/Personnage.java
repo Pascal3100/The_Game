@@ -80,7 +80,10 @@ public abstract class Personnage {
 
 
     public String getResume() {
-        return this.nom + "Your actual skills : Level: " + this.niveau + " - Force: " + this.force + " - Intelligence: " + this.intelligence + " - Agilite: " + this.agilite;
+        return this.nom + "Your actual skills : Level: " + this.niveau + " - Vitalite: " + this.vitalite + " - Force: " + this.force + " - Intelligence: " + this.intelligence + " - Agilite: " + this.agilite;
+    }
+    public String getCurStatus() {
+        return this.nom + "Level of vitality : " + this.vitalite;
     }
     public String getNom() {
         return this.nom;
@@ -88,5 +91,12 @@ public abstract class Personnage {
 
     private void setNom() {
         this.nom = "(@" + this.playerType + "_" + this.playerNumber + ") ";
+    }
+    public void receiveDammages(int dammages) {
+        if (dammages > this.vitalite) {
+            this.vitalite = 0;
+        } else {
+            this.vitalite = this.vitalite - dammages;
+        }
     }
 }

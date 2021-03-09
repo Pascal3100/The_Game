@@ -1,5 +1,6 @@
 package classes;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Screen {
@@ -8,8 +9,11 @@ public class Screen {
 
     // Efface l'ecran
     public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        try {
+            Runtime.getRuntime().exec("cls");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Affiche du texte à l'écran

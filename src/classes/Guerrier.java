@@ -4,11 +4,16 @@ public class Guerrier extends Personnage {
 
     public int attaqueBasique() {
         System.out.println("Coup d’Épée!");
-        return 0;
+        return this.force;
     };
 
     public int attaqueSpeciale() {
         System.out.println("Coup de Rage!");
-        return 0;
+        if (this.vitalite == 1) {
+            this.receiveDammages(1);
+        } else {
+            this.receiveDammages(this.force / 2);
+        }
+        return this.force * 2;
     };
 }
